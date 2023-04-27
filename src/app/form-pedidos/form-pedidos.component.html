@@ -5,7 +5,7 @@
     <input type="text" formControlName="direccionEntrega" placeholder="Direccion de Entrega"><br>
     <button type="button" routerLink="detalle" [queryParams]="{id: pedidos.get('id')?.value}">Agregar Detalles</button><br>
     <router-outlet></router-outlet>
-    <button type="submit" [disabled]="!detallePedidosValid()">Agregar Pedido</button>
+    <button type="submit" [disabled]="!isDetallePedidosValid()">Agregar Pedido</button>
     <button type="button" (click)="cancel()">Cancelar</button>
 </form>
 <br>
