@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="pedidos" #pedidosForm="ngForm">
+    <input type="number" formControlName="id" placeholder="ID"><br>
+    <input type="number" formControlName="idCliente" placeholder="ID Cliente"><br>
+    <input type="text" formControlName="formaPago" placeholder="Forma de Pago"><br>
+    <input type="text" formControlName="direccionEntrega" placeholder="Direccion de Entrega"><br>
+    <button type="button" routerLink="detalle" [queryParams]="{id: pedidos.get('id')?.value}">Agregar Detalles</button><br>
+    <router-outlet></router-outlet>
+    <button type="submit">Agregar Pedido</button>
+    <button type="button" (click)="cancel()">Cancelar</button>
+</form>
+<br>
+<table border="1" cellPadding="4">
+    <tr>
+        <th>ID</th>
+        <th>ID Cliente</th>
+        <th>Forma de Pago</th>
+        <th>Direccion de Entrega</th>
+        <th>Detalles</th>
+    </tr>
+    <tr *ngFor="let pair of listaPedidos">
+        <td>{{pair.id}}</td>
+        <td>{{pair.idCliente}}</td>
+        <td>{{pair.formaPago}}</td>
+        <td>{{pair.direccionEntrega}}</td>
+        <td>
+            <ul>
+                <li *ngFor="let prod of getProductosOfId(pair.id)">
+                    {{prod.cantidad}}x ID {{prod.idProducto}}
+                </li>
+            </ul>
+        </td>
+    </tr>
+</table>

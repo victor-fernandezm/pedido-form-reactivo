@@ -1,0 +1,7 @@
+<div class="border">
+    <form (ngSubmit)="onSubmit()" [formGroup]="productos" #productosForm="ngForm">
+        <input type="number" formControlName="idProducto" placeholder="ID Producto"><br>
+        <input type="number" formControlName="cantidad" placeholder="Cantidad"><br>
+        <button type="submit">Agregar</button>
+    </form>
+</div>
