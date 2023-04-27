@@ -35,6 +35,10 @@ export class FormPedidosComponent {
     return this.listaProductos.filter(p => p.idPedido == id);
   }
 
+  detallePedidosValid(): boolean {
+    return this.pedidosService.productosPedido.length > 0;
+  }
+
   show() {
     console.log(this.pedidosService.pedidos);
     console.log(this.pedidosService.productos);
